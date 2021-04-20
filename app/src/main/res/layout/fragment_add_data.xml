@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".addData.AddDataFragment">
+
+    <data>
+        <variable
+            name = "addDataViewModel"
+            type="com.devdhruv.roomdb.addData.AddDataViewModel"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/etFirstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@={addDataViewModel.firstName}"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@={addDataViewModel.lastName}"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etFirstName" />
+
+        <Spinner
+            android:id="@+id/spGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@{addDataViewModel.genders}"
+            android:layout_marginTop="8dp"
+            android:selectedItemPosition="@={addDataViewModel.headingsPos}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etLastName" />
+
+        <Button
+            android:id="@+id/btAddName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Name"
+            android:layout_marginTop="8dp"
+            android:onClick="@{()->addDataViewModel.onAddName()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spGender" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

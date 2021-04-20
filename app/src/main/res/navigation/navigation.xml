@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/viewNameFragment">
+
+
+    <fragment
+        android:id="@+id/viewNameFragment"
+        android:name="com.devdhruv.roomdb.showData.ShowDataFragment"
+        android:label="fragment_view_name"
+        tools:layout="@layout/fragment_view_name" >
+        <action
+            android:id="@+id/action_viewNameFragment_to_addDataFragment"
+            app:destination="@id/addDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addDataFragment"
+        android:name="com.devdhruv.roomdb.addData.AddDataFragment"
+        android:label="fragment_add_data"
+        tools:layout="@layout/fragment_add_data" >
+        <action
+            android:id="@+id/action_addDataFragment_to_viewNameFragment"
+            app:destination="@id/viewNameFragment"
+            app:popUpTo="@id/viewNameFragment" />
+    </fragment>
+</navigation>
